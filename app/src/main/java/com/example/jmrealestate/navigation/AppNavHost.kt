@@ -9,6 +9,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.jmrealestate.ui.theme.screens.about.AboutScreen
 import com.example.jmrealestate.ui.theme.screens.detail.DetailScreen
 import com.example.jmrealestate.ui.theme.screens.home.HomeScreen
+import com.example.jmrealestate.ui.theme.screens.intent.IntentScreen
+import com.example.jmrealestate.ui.theme.screens.property.PropertyScreen
+import com.example.jmrealestate.ui.theme.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost(
@@ -32,5 +35,15 @@ fun AppNavHost(
         composable(ROUT_DETAIL) {
             DetailScreen(navController = navController)
         }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController = navController)
+        }
+        composable(ROUT_PROPERTY) {
+            PropertyScreen(navController = navController)
+        }
+        composable(ROUT_INTENT) {
+            IntentScreen(navController = navController)
+        }
+
     }
 }
