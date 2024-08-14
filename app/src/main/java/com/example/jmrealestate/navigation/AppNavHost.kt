@@ -10,14 +10,16 @@ import com.example.jmrealestate.ui.theme.screens.about.AboutScreen
 import com.example.jmrealestate.ui.theme.screens.detail.DetailScreen
 import com.example.jmrealestate.ui.theme.screens.home.HomeScreen
 import com.example.jmrealestate.ui.theme.screens.intent.IntentScreen
+import com.example.jmrealestate.ui.theme.screens.login.LoginScreen
 import com.example.jmrealestate.ui.theme.screens.property.PropertyScreen
+import com.example.jmrealestate.ui.theme.screens.signup.SignupScreen
 import com.example.jmrealestate.ui.theme.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination:String = ROUT_HOME
+    startDestination:String = ROUT_SPLASH
 ) {
     NavHost(
         navController = navController,
@@ -43,6 +45,12 @@ fun AppNavHost(
         }
         composable(ROUT_INTENT) {
             IntentScreen(navController = navController)
+        }
+        composable(ROUT_SIGNUP) {
+            SignupScreen(navController = navController)
+        }
+        composable(ROUT_LOGIN) {
+            LoginScreen(navController =navController )
         }
 
     }

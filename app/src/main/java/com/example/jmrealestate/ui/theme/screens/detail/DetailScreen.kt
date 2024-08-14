@@ -13,11 +13,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -46,17 +49,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.jmrealestate.R
+import com.example.jmrealestate.navigation.ROUT_DETAIL
+import com.example.jmrealestate.navigation.ROUT_INTENT
 
-@Composable
-fun DetailScreen(navController: NavController){
-
-}
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview(showBackground = true)
-fun DetailScreenPreview(){
-    DetailScreen(rememberNavController())
-
+fun DetailScreen(navController: NavController){
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
             title = { Text(text = "Magic Bricks", fontFamily = FontFamily.Cursive) },
@@ -72,7 +70,7 @@ fun DetailScreenPreview(){
                 IconButton(onClick = { /*TODO*/ }) {
                     Icon(imageVector = Icons.Default.ShoppingCart, contentDescription ="", tint = Color.Black )}
             }
-            )
+        )
         Box(modifier = Modifier
             .fillMaxWidth()
             .height(280.dp),
@@ -85,7 +83,7 @@ fun DetailScreenPreview(){
                 fontSize = 40.sp,
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.SemiBold
-                )
+            )
         }
         Spacer(modifier = Modifier.height(40.dp))
 
@@ -144,9 +142,36 @@ fun DetailScreenPreview(){
             //End of Card
 
         }
+        Spacer(modifier = Modifier.height(25.dp))
 
-        
+        Button(onClick = {
+            navController.navigate(ROUT_INTENT)
+
+        },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp)
+                .height(50.dp),
+            colors = ButtonDefaults.buttonColors(Color.Black),
+            shape = RoundedCornerShape(10.dp)
+
+        ) {
+            Text(text = "Get Started")
+        }
+
+
+
+
 
     }
+
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+@Preview(showBackground = true)
+fun DetailScreenPreview(){
+    DetailScreen(rememberNavController())
+
+
 }
 

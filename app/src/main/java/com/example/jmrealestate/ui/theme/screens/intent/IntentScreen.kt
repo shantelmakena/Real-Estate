@@ -19,10 +19,13 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Face
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -211,7 +214,9 @@ fun IntentScreen(navController: NavController){
                             Text(text = "54,789 reviews")
 
                             Button(
-                                onClick = { /*TODO*/ },
+                                onClick = { val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0720245837".toUri()
+                                    mContext.startActivity(callIntent) },
                                 colors = ButtonDefaults.buttonColors(Color.Black),
                                 shape = RoundedCornerShape(10.dp)
 
@@ -371,19 +376,19 @@ fun IntentScreen(navController: NavController){
 
 
         BottomNavItem(
-            title = "Login",
-            route="login",
-            selectedIcon=Icons.Filled.Person,
-            unselectedIcon=Icons.Outlined.Person,
+            title = "Details",
+            route="detail",
+            selectedIcon=Icons.Filled.Info,
+            unselectedIcon=Icons.Outlined.Info,
             hasNews = true,
             badges=5
         ),
 
         BottomNavItem(
-            title = "Signup",
-            route="signup",
-            selectedIcon=Icons.Filled.Face,
-            unselectedIcon=Icons.Outlined.Face,
+            title = "Property",
+            route="property",
+            selectedIcon=Icons.Filled.Favorite,
+            unselectedIcon=Icons.Outlined.Favorite,
             hasNews = true,
             badges=1
         ),
