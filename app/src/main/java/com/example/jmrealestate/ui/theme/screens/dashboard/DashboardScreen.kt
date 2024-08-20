@@ -31,8 +31,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.jmrealestate.R
+import com.example.jmrealestate.navigation.ADD_PRODUCTS_URL
 import com.example.jmrealestate.navigation.ROUT_HOME
 import com.example.jmrealestate.navigation.ROUT_PROPERTY
+import com.example.jmrealestate.navigation.VIEW_PRODUCTS_URL
 import com.example.jmrealestate.ui.theme.LightBlue
 
 @Composable
@@ -68,24 +70,29 @@ fun DashboardScreen(navController: NavController){
                 //Row1
                 Row(modifier = Modifier.padding(20.dp)) {
                     //Card One
-                    Card(modifier = Modifier
-                        .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_HOME) },
-                        elevation =CardDefaults.cardElevation(20.dp)
+                    Card(
+                        modifier = Modifier
+                            .width(160.dp)
+                            .height(180.dp)
+                            .clickable { navController.navigate(ROUT_HOME) },
+                        elevation = CardDefaults.cardElevation(20.dp)
 
                     ) {
                         Column() {
                             Spacer(modifier = Modifier.height(10.dp))
-                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.icon2) ,
+                                    painter = painterResource(id = R.drawable.icon2),
                                     contentDescription = "",
                                     modifier = Modifier.size(100.dp)
-                                    )
+                                )
                             }
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "Home",
+                            Text(
+                                text = "Home",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
@@ -104,15 +111,19 @@ fun DashboardScreen(navController: NavController){
                         .height(180.dp)) {
                         Column() {
                             Spacer(modifier = Modifier.height(10.dp))
-                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.icon) ,
+                                    painter = painterResource(id = R.drawable.icon),
                                     contentDescription = "",
                                     modifier = Modifier.size(100.dp)
                                 )
                             }
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "Property",
+                            Text(
+                                text = "Property",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
@@ -129,20 +140,96 @@ fun DashboardScreen(navController: NavController){
                 //Row1
                 Row(modifier = Modifier.padding(20.dp)) {
                     //Card One
-                    Card(modifier = Modifier
-                        .width(160.dp)
-                        .height(180.dp)) {
+                    Card(
+                        modifier = Modifier
+                            .width(160.dp)
+                            .height(180.dp)
+                    ) {
                         Column() {
                             Spacer(modifier = Modifier.height(10.dp))
-                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.settings) ,
+                                    painter = painterResource(id = R.drawable.settings),
                                     contentDescription = "",
                                     modifier = Modifier.size(100.dp)
                                 )
                             }
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "Settings",
+                            Text(
+                                text = "Settings",
+                                fontSize = 18.sp,
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Center
+                            )
+
+                        }
+
+
+                    }
+                    //End of card one
+                    Spacer(modifier = Modifier.width(25.dp))
+                    //Card One
+                    Card(
+                        modifier = Modifier
+                            .width(160.dp)
+                            .height(180.dp)
+                    ) {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Box(
+                            modifier = Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.profile),
+                                contentDescription = "",
+                                modifier = Modifier.size(100.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Text(
+                            text = "Profile",
+                            fontSize = 18.sp,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center
+                        )
+
+                    }
+
+
+                }
+                //End of card one
+
+
+                //End of row2
+                Spacer(modifier = Modifier.height(10.dp))
+                Row(modifier = Modifier.padding(20.dp)) {
+                    //Card One
+                    Card(
+                        modifier = Modifier
+                            .width(160.dp)
+                            .height(180.dp)
+                            .clickable { navController.navigate(ADD_PRODUCTS_URL) },
+                        elevation = CardDefaults.cardElevation(20.dp)
+
+                    ) {
+                        Column() {
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.icon2),
+                                    contentDescription = "",
+                                    modifier = Modifier.size(100.dp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Text(
+                                text = "Add Products",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
@@ -156,18 +243,25 @@ fun DashboardScreen(navController: NavController){
                     Spacer(modifier = Modifier.width(25.dp))
                     //Card One
                     Card(modifier = Modifier
+                        .clickable { navController.navigate(VIEW_PRODUCTS_URL) }
+
                         .width(160.dp)
                         .height(180.dp)) {
+                        Column() {
                             Spacer(modifier = Modifier.height(10.dp))
-                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.profile) ,
+                                    painter = painterResource(id = R.drawable.icon),
                                     contentDescription = "",
                                     modifier = Modifier.size(100.dp)
                                 )
                             }
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "Profile",
+                            Text(
+                                text = "View Products",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
@@ -180,13 +274,14 @@ fun DashboardScreen(navController: NavController){
                     //End of card one
 
                 }
-                //End of row2
-
+                //End of row1
+            }
+            //End of main card
 
 
 
             }
-            //End of main card
+
 
         }
 
